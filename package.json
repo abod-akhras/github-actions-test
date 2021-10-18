@@ -38,7 +38,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "github-actions-test",
+  "name": "github-actions-test-abod",
   "author": "Abod-Akhras",
   "module": "dist/github-actions-test.esm.js",
   "size-limit": [
