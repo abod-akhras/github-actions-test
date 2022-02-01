@@ -1,6 +1,6 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node and then publish the new bundle to NPM
 
-name: Dry Publish
+name: Dry Publish Long Script
 
 
 on:
@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '14'
     - run: npm install
-    - run: npm run semantic-release --dry-run
+    - run: npx -p @semantic-release/exec -p semantic-release semantic-release --branches main --dry-run --plugins "@semantic-release/commit-analyzer,@semantic-release/exec" --analyzeCommits @semantic-release/commit-analyzer --verifyRelease @semantic-release/exec --verifyReleaseCmd 'echo ${nextRelease.version}'
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
